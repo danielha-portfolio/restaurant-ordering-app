@@ -38,7 +38,12 @@ h1{
     color: #3C3C3C;
     border: 1px solid #DEDEDE;
     background-color: transparent;
-
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+}
+.item-card button:hover{
+    background-color: #000;
+    color: #fff;
 }
 .product{
     font-size: 75px;
