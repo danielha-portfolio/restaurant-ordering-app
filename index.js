@@ -53,10 +53,50 @@ let order = [
 ]
 
 let orderContainer = document.querySelector(".order-container");
+let orderCont = document.querySelector(".orders-cont");
+let totalCost = document.querySelector('.total-cost')
+
+
+orderCont.addEventListener("click", (e) => {
+    if (e.target.classList.contains("remove-btn")) {
+
+        const selectedProduct = e.target.dataset.product;
+
+        const product = order.find(
+            item => item.name === selectedProduct
+        );
+
+        if (product) {
+            product.amount = 0;
+            renderingOrder();
+        }
+    }
+});
 
 // ORDER DETAILS
 const renderingOrder = () =>{
     const moreThanOne = order.some(order => order.amount > 0);
     orderContainer.style.display = moreThanOne ? "block" : "none";
+
+    let orderDetails = '';
+    order.map((orderDetail)=>{
+        if(orderDetail.amount > 0){
+            orderDetails += `
+            <div class="order-card">
+                <div class="left">
+                <p>${orderDetail.amount} x</p> <p>${orderDetail.name.toUpperCase()}</p> <p class="remove-btn" data-product="${orderDetail.name.toLowerCase()}">remove</p>
+                </div>
+                <div class="right">
+                <p class="cost">$${orderDetail.price * orderDetail.amount}</p>
+                </div>
+            </div>
+           `
+        }
+        let total = order.reduce((sum, item) => {
+            return sum + (item.price * item.amount);
+        }, 0);
+        totalCost.textContent=`$${total}`
+    })
+    orderCont.innerHTML = orderDetails
 }
 renderingOrder()
