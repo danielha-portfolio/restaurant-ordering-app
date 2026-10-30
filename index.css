@@ -14,9 +14,28 @@ input[type="number"] {
     appearance: textfield;
     -moz-appearance: textfield;
 }
-h1{
+
+.header-banner{
+    height: 30vh;
+    background-image: url('./images/bg-img-updated.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.header-banner h1{
+    margin: 0 auto;
+}
+.header-banner h2{
+    margin: 0.5em;
+}
+.header-banner h1, .header-banner h2{
     text-align: center;
-    margin-top: 15px;
+    color:#fff;
 }
 .container{
     max-width: 500px;
