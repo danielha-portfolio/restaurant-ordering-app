@@ -31,6 +31,9 @@ buttons.forEach((button)=>{
                 renderingOrder()
             }
         })
+        let completeText = document.querySelector(".complete-text");
+        
+        completeText ? completeText.style.display = "none" : null;
     })
 })
 
@@ -117,6 +120,8 @@ orderForm.addEventListener("submit", (e)=>{
     menuContainer.insertAdjacentHTML('afterend', `<p class="complete-text">Thanks, ${name}! Your order is on its way!</p>`);
     modalContainer.style.display="none";
     orderContainer.style.display="none";
+    document.querySelector("form").reset();
+    order.map(ord => ord.amount = 0)
     e.preventDefault()
 })
 
