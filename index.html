@@ -22,7 +22,18 @@
                          <p>Total Price</p>
                          <p class="total-cost"></p>
                     </div>
-                    <button>Complete Order</button>
+                    <div class="modal-container">
+                        <div class="modal">
+                            <form action="" id="PayForm">
+                                <h3>Enter card details</h3>
+                                <input type="text" name="nameInput" id="nameInput" placeholder="Enter your name" aria-label="Name" required>
+                                <input type="number" name="cardInput" id="cardInput" placeholder="Enter Card Number" aria-label="Card Number"  value="" min="12" oninput="this.value = this.value.slice(0, 12)" required>
+                                <input type="number" name="nameInput" id="nameInput" placeholder="Enter CVV" aria-label="CVV" min="3" oninput="this.value = this.value.slice(0, 3)" required>
+                                <button class="payBtn" type="submit">Pay</button>
+                            </form>
+                        </div>
+                    </div>
+                    <button class="completeBtn">Complete Order</button>
                 </div>
             </div>
         </main>

@@ -100,3 +100,25 @@ const renderingOrder = () =>{
     orderCont.innerHTML = orderDetails
 }
 renderingOrder()
+
+// FORM
+
+let modalContainer = document.querySelector('.modal-container');
+let completeBtn = document.querySelector('.completeBtn');
+let orderForm = document.querySelector("#PayForm")
+
+completeBtn.addEventListener("click", ()=>{
+    modalContainer.style.display="block";
+})
+
+orderForm.addEventListener("submit", (e)=>{
+    const formData = new FormData(orderForm);
+    const name = formData.get("nameInput") 
+    menuContainer.insertAdjacentHTML('afterend', `<p class="complete-text">Thanks, ${name}! Your order is on its way!</p>`);
+    modalContainer.style.display="none";
+    orderContainer.style.display="none";
+    e.preventDefault()
+})
+
+
+
